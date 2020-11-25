@@ -29,8 +29,9 @@ while s == "y":
             front=str(round(int(ix)/10**(3*(n+1)),2))
             if front.endswith('.0'):
                 front= front[:-2]
-            vowel = [vowelList[min(math.floor((max(n-1,0)/25)),4)]]
-            #print(ix,n,front,vowel)
+            vowel = [vowelList[min(math.floor(max((n/25)-1,0)),4)]]
+            print("db",math.floor(max((n/25)-1,0)))
+            print("db",ix,n,front,vowel)
             print(front, end=" ")
             z=0
             while n > 25:
@@ -52,9 +53,12 @@ while s == "y":
                     if f == False:
                         vowel[m] = n
                     else:
-                        vowel.pop(m)
+                        vowel[m] = "/"
             for x in range(len(vowel)):
-                print(str(alphabetList[vowel[x]]), end="")
+                try:
+                    print(str(alphabetList[vowel[x]]), end="")
+                except:
+                    print(vowel[x],end="")
             if f == True:
                 print("llium")
             else:
